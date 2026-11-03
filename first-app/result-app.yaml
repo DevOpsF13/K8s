@@ -19,6 +19,11 @@ spec:
         ports:
         - containerPort: 80
           name: result
+          env:
+          - name: OPTION_A
+            value: "Chocolate"
+          - name: OPTION_B
+            value: "Chips"
 ---
 apiVersion: v1
 kind: Service
