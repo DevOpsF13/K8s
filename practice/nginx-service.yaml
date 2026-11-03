@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx         # Face legătura cu eticheta (label) din Deployment
+  ports:
+    - protocol: TCP
+      port: 80         # Portul serviciului în interiorul clusterului
+      targetPort: 8080   # Portul pe care rulează containerul Nginx
+
