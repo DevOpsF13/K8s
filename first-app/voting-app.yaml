@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
+metadata:
   name: voting-app
   namespace: first-ns
 spec:
@@ -15,15 +15,15 @@ spec:
     spec:
       containers:
       - name: vote
-        image: image: mikefarah/examplevotingapp_vote:latest
+        image: mikefarah/examplevotingapp_vote:latest
         ports:
         - containerPort: 80
+          name: vote
         env:
         - name: OPTION_A
           value: "Chocolate"
         - name: OPTION_B
           value: "Chips"
-
 ---
 apiVersion: v1
 kind: Service
