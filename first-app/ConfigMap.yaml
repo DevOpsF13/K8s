@@ -10,7 +10,7 @@ data:
     echo "Se aplică patch-ul pentru Chocolate și Chips..."
     cd /app
     # Înlocuim textul din fișierele html și js
-    find . -type f -exec sed -i 's/Cats/Chocolate/g' {} +
+    find . -type f -exec sed -i 's/Cats/Choco/g' {} +
     find . -type f -exec sed -i 's/Dogs/Chips/g' {} +
     # Pornim aplicația originală Node.js a containerului
     node server.js
