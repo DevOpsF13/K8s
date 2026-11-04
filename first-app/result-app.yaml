@@ -15,17 +15,19 @@ spec:
     spec:
       containers:
       - name: result
-        image: schoolofdevops/result:latest
+        image: dockersamples/examplevotingapp_result:latest
         ports:
         - containerPort: 80
           name: result
-        env:
-        - name: DB_HOST
-          value: "db"
-        - name: OPTION_A
-          value: "Chocolate"
-        - name: OPTION_B
-          value: "Chips"
+        # Îi spunem containerului să execute scriptul nostru de modificare la pornire
+        command: ["/bin/sh", "/tmp/patch/patch.sh"]
+        volumeMounts:
+        - name: script-volume
+          mountPath: /tmp/patch
+      volumes:
+      - name: script-volume
+        configMap:
+          name: result-patch-script
 ---
 apiVersion: v1
 kind: Service
