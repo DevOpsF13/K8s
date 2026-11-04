@@ -20,6 +20,8 @@ spec:
         - containerPort: 80
           name: result
         env:
+        - name: DB_HOST
+          value: "db"
         - name: OPTION_A
           value: "Chocolate"
         - name: OPTION_B
